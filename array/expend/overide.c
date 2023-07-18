@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:51:24 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/06 20:44:26 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:33:04 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	overidev(t_arr *arr, size_t index, char *elem, size_t len)
 {
 	inrange(arr, &index);
 	arrealloc(arr, index + len); //CACA
-	memcpy(get(arr, index), elem, arr->s_arr * len);
+	memcpy(get(arr, index).voidp, elem, arr->s_arr * len);
 }

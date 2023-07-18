@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 01:33:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/06 20:52:47 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:32:55 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	swap(t_arr *arr, size_t a, size_t b)
 	char	t;
 	size_t	i;
 
-	r = get(arr, a);
-	l = get(arr, b);
+	r = get(arr, a).voidp;
+	l = get(arr, b).voidp;
 	i = -1;
 	while (++i < arr->s_arr)
 	{
@@ -37,8 +37,8 @@ void	swap_any(t_arr *arr, size_t a, size_t b)
 	char	t;
 	size_t	i;
 
-	r = get_any(arr, a);
-	l = get_any(arr, b);
+	r = get_any(arr, a).voidp;
+	l = get_any(arr, b).voidp;
 	i = -1;
 	while (++i < arr->s_arr)
 	{

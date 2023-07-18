@@ -24,7 +24,7 @@ size_t	count(t_arr *arr, ...)
 	i = -1;
 	c = 0;
 	while (++i < arr->size)
-		if (memcmpn(get(arr, i), target, arr->s_arr) == 1)
+		if (memcmpn(get(arr, i).voidp, target, arr->s_arr) == 1)
 			c++;
 	return (c);
 }
@@ -42,7 +42,7 @@ size_t	countfrom(t_arr *arr, size_t s, ...)
 	i = s - 1;
 	c = 0;
 	while (++i < arr->size)
-		if (memcmpn(get(arr, i), target, arr->s_arr) == 1)
+		if (memcmpn(get(arr, i).voidp, target, arr->s_arr) == 1)
 			c++;
 	return (c);
 }
@@ -60,7 +60,7 @@ size_t	countto(t_arr *arr, size_t e, ...)
 	i = -1;
 	c = 0;
 	while (++i < e)
-		if (memcmpn(get(arr, i), target, arr->s_arr) == 1)
+		if (memcmpn(get(arr, i).voidp, target, arr->s_arr) == 1)
 			c++;
 	return (c);
 }
@@ -78,7 +78,7 @@ size_t	countin(t_arr *arr, size_t s, size_t e, ...)
 	i = s - 1;
 	c = 0;
 	while (++i < e)
-		if (memcmpn(get(arr, i), target, arr->s_arr) == 1)
+		if (memcmpn(get(arr, i).voidp, target, arr->s_arr) == 1)
 			c++;
 	return (c);
 }

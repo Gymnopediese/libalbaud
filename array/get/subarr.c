@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 18:47:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/08 00:52:35 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:33:23 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_arr	subarr(t_arr *arr, size_t s, size_t e)
 	if (e != arr->size)
 		minmax(arr, &s, &e);
 	res = array(e - s + 1, arr->s_arr);
-	extendv(&res, get(arr, s), res.capacity);
+	extendv(&res, get(arr, s).voidp, res.capacity);
 	return (res);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indexoff.c                                            :+:      :+:    :+:   */
+/*   indexf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 00:43:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/05 04:28:04 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:25:16 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	indexoff(t_arr *arr, int (*condition)(void *))
 	i = -1;
 	while (++i < arr->size)
 	{
-		if (condition(get(arr, i)) == 1)
+		if (condition(get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -33,7 +33,7 @@ size_t	indexofffrom(t_arr *arr, size_t s, int (*condition)(void *))
 	i = s - 1;
 	while (++i < arr->size)
 	{
-		if (condition(get(arr, i)) == 1)
+		if (condition(get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -47,7 +47,7 @@ size_t	indexoffto(t_arr *arr, size_t e, int (*condition)(void *))
 	i = -1;
 	while (++i < e)
 	{
-		if (condition(get(arr, i)) == 1)
+		if (condition(get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -61,7 +61,7 @@ size_t	indexoffin(t_arr *arr, size_t s, size_t e, int (*condition)(void *))
 	i = s - 1;
 	while (++i < e)
 	{
-		if (condition(get(arr, i)) == 1)
+		if (condition(get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);

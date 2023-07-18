@@ -18,7 +18,7 @@ size_t	indexofp(t_arr *arr, void *target)
 
 	i = -1;
 	while (++i < arr->size)
-		if (get(arr, i) == target)
+		if (get(arr, i).chars == target)
 			return (i);
 	return (-1);
 }
@@ -30,7 +30,7 @@ size_t	indexofpfrom(t_arr *arr, size_t s, void *target)
 	inrange(arr, &s);
 	i = s - 1;
 	while (++i < arr->size)
-		if (get(arr, i) == target)
+		if (get(arr, i).chars == target)
 			return (i);
 	return (-1);
 }
@@ -42,7 +42,7 @@ size_t	indexofpto(t_arr *arr, size_t e, void *target)
 	inrange(arr, &e);
 	i = -1;
 	while (++i < e)
-		if (get(arr, i) == target)
+		if (get(arr, i).chars == target)
 			return (i);
 	return (-1);
 }
@@ -54,7 +54,7 @@ size_t	indexofpin(t_arr *arr, size_t s, size_t e, void *target)
 	minmax(arr, &s, &e);
 	i = s - 1;
 	while (++i < e)
-		if (get(arr, i) == target)
+		if (get(arr, i).chars == target)
 			return (i);
 	return (-1);
 }

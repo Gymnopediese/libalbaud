@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 00:43:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/06 19:10:22 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:31:33 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	containsp(t_arr *arr, void *target)
 
 	i = -1;
 	while (++i < arr->size)
-		if (get(arr, i) == target)
+		if (get(arr, i).voidp == target)
 			return (1);
 	return (0);
 }
@@ -30,7 +30,7 @@ int	containspfrom(t_arr *arr, size_t s, void *target)
 	inrange(arr, &s);
 	i = s - 1;
 	while (++i < arr->size)
-		if (get(arr, i) == target)
+		if (get(arr, i).voidp == target)
 			return (1);
 	return (0);
 }
@@ -42,7 +42,7 @@ int	containspto(t_arr *arr, size_t e, void *target)
 	inrange(arr, &e);
 	i = -1;
 	while (++i < e)
-		if (get(arr, i) == target)
+		if (get(arr, i).voidp == target)
 			return (1);
 	return (0);
 }
@@ -54,7 +54,7 @@ int	containspin(t_arr *arr, size_t s, size_t e, void *target)
 	minmax(arr, &s, &e);
 	i = s - 1;
 	while (++i < e)
-		if (get(arr, i) == target)
+		if (get(arr, i).voidp == target)
 			return (1);
 	return (0);
 }

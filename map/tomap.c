@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 13:06:24 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/08 13:39:29 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 20:34:05 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_map	to_map(t_arr *keys, t_arr *values)
 	res = newmap(keys->size);
 	i = -1;
 	while (++i < keys->size)
-		setvlen(&res, get(keys, i), keys->s_arr, get(values, i), values->s_arr);
+		setvlen(&res, get(keys, i).voidp, keys->s_arr, get(values, i).voidp, values->s_arr);
 	return (res);
 }
 
@@ -38,10 +38,10 @@ t_map	to_map_kp(t_arr *keys, t_arr *values)
 	i = -1;
 	while (++i < keys->size)
 	{
-		p = *(char **)get(keys, i);
+		p = *get(keys, i).strings_char;
 		printf("iterations %s\n", p);
 		infos(&res);
-		setvlen(&res, p, strlen(p), get(values, i), values->s_arr);
+		setvlen(&res, p, strlen(p), get(values, i).voidp, values->s_arr);
 	}
 	return (res);
 }
@@ -58,8 +58,8 @@ t_map	to_map_vp(t_arr *keys, t_arr *values)
 	i = -1;
 	while (++i < keys->size)
 	{
-		p = *(char **)get(values, i);
-		setvlen(&res, get(keys, i), keys->s_arr, p, strlen(p));
+		p = *get(values, i).strings_char;
+		setvlen(&res, get(keys, i).voidp, keys->s_arr, p, strlen(p));
 	}
 	return (res);
 }
@@ -77,8 +77,8 @@ t_map	to_map_pp(t_arr *keys, t_arr *values)
 	i = -1;
 	while (++i < keys->size)
 	{
-		k = *(char **)get(keys, i);
-		v = *(char **)get(values, i);
+		k = *(char **)get(keys, i).strings_char;
+		v = *(char **)get(values, i).strings_char;
 		setvlen(&res, k, strlen(k), v, strlen(v));
 	}
 	return (res);

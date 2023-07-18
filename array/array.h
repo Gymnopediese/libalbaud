@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:35:31 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/10 15:20:03 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:27:40 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 
 # include "../trashcan/trashcan.h"
+# include "../random/random.h"
 # include "t_arr.h"
 
 # include "error/error.h"
@@ -26,7 +27,8 @@
 # include "search/count/count.h"
 # include "search/contains/contains.h"
 # include "search/index/index.h"
-
+# include "range/range.h"
+# include "random/randomarr.h"
 # include "modify/modify.h"
 
 # include "expend/expend.h"
@@ -48,20 +50,20 @@ void		arrealloc(t_arr	*res, size_t size);
 // push elem to the end of the array
 
 // clear the array
-void		clear(t_arr *arr);
+void			clear(t_arr *arr);
 // return a copy of the array
-t_arr		copy(t_arr *arr);
+t_arr			copy(t_arr *arr);
 
 // return an iterator pointing to the begining of the array
-void		*begin(t_arr *arr);
+t_pointer			begin(t_arr *arr);
 // return an iterator pointing to the end of the array
-void		*end(t_arr *arr);
-// return a const iterator pointing to the begining of the array
-const void	*cbegin(t_arr *arr);
-// return a const iterator pointing to the end of the array
-const void	*cend(t_arr *arr);
+t_pointer			end(t_arr *arr);
+// // return a const iterator pointing to the begining of the array
+// const t_cpointer	cbegin(t_arr *arr);
+// // return a const iterator pointing to the end of the array
+// const t_pointer	cend(t_arr *arr);
 // return the pointer of the element at position index
-void		*get(t_arr *arr, size_t index);
+t_pointer			get(t_arr *arr, size_t index);
 
 // swap elements at postion a and b
 void		swap(t_arr *arr, size_t a, size_t b);
@@ -89,7 +91,7 @@ void		minmaxlen(t_arr *arr, size_t *start, size_t *end);
 
 void		unique(t_arr *arr);
 
-void		*get_any(t_arr *arr, size_t index);
+t_pointer	get_any(t_arr *arr, size_t index);
 
 int			memcmpn(char *a, char *b, size_t n);
 
@@ -116,8 +118,11 @@ int			is_any(t_arr *arr, int (*func)());
 t_arr		split(t_arr *arr, char *sep, size_t size);
 t_arr		splitset(t_arr *arr, char **sep);
 
-t_arr		subcontent(t_arr *arr, size_t startt, char *start, size_t endd,char *end);
+t_arr		subcontent(t_arr *arr, size_t startt, char *start, size_t endd, char *end);
 t_arr		subcontents(t_arr *arr, char *start, char *end);
+
+t_arr		chunk(t_arr *arr, size_t size);
+
 // extend()	Add the elements of a list (or any iterable), to the end of the current list
 // insert()	Adds an element at the specified position
 // pop()	Removes the element at the specified position

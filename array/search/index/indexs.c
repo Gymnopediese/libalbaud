@@ -41,7 +41,7 @@ size_t	indexofsin(t_arr *arr, size_t s, size_t e, char *target)
 	while (++i < e)
 	{
 		j = 0;
-		while (memcmpn(get(arr, i + j),
+		while (memcmpn(get(arr, i + j).chars,
 				&target[j * arr->s_arr], arr->s_arr) == 1)
 			j++;
 		if (j == size)

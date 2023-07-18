@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:25:07 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/05 20:28:56 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:31:35 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	filter(t_arr *arr, int (*condition)())
 
 	i = -1;
 	while (++i < arr->size)
-		if (condition(get(arr, i)) != 1)
+		if (condition(get(arr, i).voidp) != 1)
 			remove_at(arr, i--);
 }
 
@@ -31,9 +31,9 @@ t_arr	partition(t_arr *arr, int (*condition)())
 	i = -1;
 	while (++i < arr->size)
 	{
-		if (condition(get(arr, i)) != 1)
+		if (condition(get(arr, i).voidp) != 1)
 		{
-			pushv(&res, get(arr, i));
+			pushv(&res, get(arr, i).voidp);
 			remove_at(arr, i--);
 		}
 	}

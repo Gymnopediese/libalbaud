@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:56:17 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/12 12:39:31 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 15:48:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	condition(char *sep, t_str *s)
 {
-	return (strcmp(s->arr, sep) == 0);
+	return (nocasefcmp(sep, s->arr) == 0);
 }
 
 int	splitcontains(char *string, char *target, char *sep)

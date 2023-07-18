@@ -19,7 +19,7 @@ size_t	indexofff(t_arr *arr, void *a, int (*condition)())
 	i = -1;
 	while (++i < arr->size)
 	{
-		if (condition(a, get(arr, i)) == 1)
+		if (condition(a, get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -33,7 +33,7 @@ size_t	indexoffffrom(t_arr *arr, size_t s, void *a, int (*condition)())
 	i = s - 1;
 	while (++i < arr->size)
 	{
-		if (condition(a, get(arr, i)) == 1)
+		if (condition(a, get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -47,7 +47,7 @@ size_t	indexofffto(t_arr *arr, size_t e, void *a, int (*condition)())
 	i = -1;
 	while (++i < e)
 	{
-		if (condition(a, get(arr, i)) == 1)
+		if (condition(a, get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);
@@ -61,7 +61,7 @@ size_t	indexofffin(t_arr *arr, size_t s, size_t e, void *a, int (*condition)())
 	i = s - 1;
 	while (++i < e)
 	{
-		if (condition(a, get(arr, i)) == 1)
+		if (condition(a, get(arr, i).voidp) == 1)
 			return (i);
 	}
 	return (-1);

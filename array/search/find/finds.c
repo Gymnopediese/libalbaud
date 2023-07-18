@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 00:43:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/06 19:05:48 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:28:06 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	*findsin(t_arr *arr, size_t s, size_t e, char *target)
 	while (++i < e)
 	{
 		j = 0;
-		while (memcmpn(get(arr, i + j),
+		while (memcmpn(get(arr, i + j).voidp,
 				&target[j * arr->s_arr], arr->s_arr) == 1)
 			j++;
 		if (j == size)
-			return (get(arr, i));
+			return (get(arr, i).voidp);
 	}
 	return (0);
 }

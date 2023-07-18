@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 00:43:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/10 13:19:35 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:23:53 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	indexofvin(t_arr *arr, size_t s, size_t e, char *target, size_t size)
 	while (++i < e)
 	{
 		j = 0;
-		while (i + j < arr->size && memcmpn(get(arr, i + j),
+		while (i + j < arr->size && memcmpn(get(arr, i + j).chars,
 				&target[j * arr->s_arr], arr->s_arr) == 1)
 			j++;
 		if (j == size)

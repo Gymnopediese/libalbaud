@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:31:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/05 12:32:00 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:31:35 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	map(t_arr *arr, void (*function)(void *))
 
 	i = -1;
 	while (++i < arr->size)
-		function(get(arr, i));
+		function(get(arr, i).voidp);
 }

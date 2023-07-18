@@ -6,22 +6,24 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:24:11 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/03 12:31:07 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 20:39:01 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file.h"
 
-char	*readlines(char *filename)
+t_arr	readlines(char *filename)
 {
-	char	**res;
-	char	*temp;
-	int		fd;
-	size_t	i;
-	size_t	c;
+	t_str	str;
 
-	temp = readfile(filename);
-	if (temp == 0)
-		return (0);
-	return (0);
+	str = readfile(filename);
+	return (split(&str, "\n", 1));
+}
+
+t_arr	readfdlines(int fd)
+{
+	t_str	str;
+
+	str = readfd(fd);
+	return (split(&str, "\n", 1));
 }

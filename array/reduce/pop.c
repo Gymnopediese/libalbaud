@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:09:50 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/08 13:46:13 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:31:56 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*pop_at(t_arr *arr, size_t ind)
 	void	*res;
 
 	inrange(arr, &ind);
-	res = memdup(get(arr, ind), arr->s_arr);
+	res = memdup(get(arr, ind).voidp, arr->s_arr);
 	ind -= 1;
 	while (++ind < arr->size - 1)
 	{

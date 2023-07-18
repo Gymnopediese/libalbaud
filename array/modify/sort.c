@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 00:14:24 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/05 12:32:06 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 00:33:30 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sort(t_arr *arr, int (*cmp)(void *, void *))
 		{
 			j = i;
 			while (++j < arr->size)
-				if (cmp(get(arr, i), get(arr, j)) != 0)
+				if (cmp(get(arr, i).voidp, get(arr, j).voidp) != 0)
 					swap(arr, i, j);
 		}
 	}

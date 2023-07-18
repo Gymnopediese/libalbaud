@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 12:20:43 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/09 19:54:26 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/17 20:32:44 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*getpvlen(t_map *map, size_t size, void *key)
 	index = indexofff(map, h, has_hash);
 	if (index == (size_t)-1)
 		return (0);
-	return (get(map, index));
+	return (get(map, index).voidp);
 }
 
 void	*getplen(t_map *map, size_t size, ...)

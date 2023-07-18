@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 13:09:26 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/11 19:44:43 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/16 17:58:56 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define STRING_H
 
 # include "../array/array.h"
+
+typedef t_arr	t_str;
+
+# include "format/format.h"
+# include "cmp/cmp.h"
 
 # define DIGITS "0123456789"
 # define LOWERCASE_ALPHABETS "abcdefghijklmnopqrstuvwxyz"
@@ -30,7 +35,6 @@
 # define ALPHANUMERIC "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 # define ALPHANUMERIC_PUNCTUATION "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
-typedef t_arr	t_str;
 
 t_str	strf(char *c_str);
 t_str	strcolor(char *c_str);
