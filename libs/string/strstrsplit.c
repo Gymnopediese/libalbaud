@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   strstrsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/09 20:56:17 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 15:48:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "string.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+int	condition(char *sep, t_str *s)
+{
+	return (nocasefcmp(sep, s->arr) == 0);
+}
 
-#endif
+int	splitcontains(char *string, char *target, char *sep)
+{
+	t_arr		sp;
+	int			res;
+	t_str		s;
+
+	s = str(string);
+	sp = split(&s, sep, strlen(sep));
+	res = indexofff(&sp, target, condition);
+	return (res != -1);
+}

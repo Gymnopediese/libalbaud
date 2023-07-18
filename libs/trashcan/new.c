@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/03/13 20:53:35 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/12 12:52:41 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "trashcan.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+void	*new(int amount, int size)
+{
+	int		i;
+	char	*res;
 
-#endif
+	res = malloc(amount * size);
+	add_pointer(res, amount, size);
+	if (LOG)
+		printf("new allocation of %d bytes %p\n", amount * size, res);
+	i = -1;
+	while (++i < size * amount)
+		res[i] = 0;
+	return (res);
+}

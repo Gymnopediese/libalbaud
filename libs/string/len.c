@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   len.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/06/28 23:01:20 by albaud            #+#    #+#             */
+/*   Updated: 2023/06/28 23:02:23 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "string.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+size_t	c_strlen(char *str)
+{
+	int	i;
 
-#endif
+	i = -1;
+	while (str[++i])
+		;
+	return (i);
+}

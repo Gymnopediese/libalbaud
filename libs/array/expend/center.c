@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   center.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/07 19:33:18 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/07 19:39:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "expend.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+void	center(t_arr *arr, size_t size, ...)
+{
+	va_list	l;
+	char	*elem;
 
-#endif
+	if (size <= arr->size)
+		return ;
+	va_start(l, size);
+	elem = va_arg_len(&l, arr->s_arr);
+	centerv(arr, size, elem);
+}
+
+void	centerv(t_arr *arr, size_t size, char *elem)
+{
+	if (size <= arr->size)
+		return ;
+	size -= arr->size;
+	fill_frontv(arr, size / 2, elem);
+	size -= size / 2;
+	fill_backv(arr, size, elem);
+}

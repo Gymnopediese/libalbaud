@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   count.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/06/29 19:53:20 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/08 11:55:54 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "../../array.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+int	memcmpn(char *a, char *b, size_t n)
+{
+	size_t	i;
 
-#endif
+	i = -1;
+	while (++i < n && a[i] == b[i])
+		;
+	return (i == n);
+}

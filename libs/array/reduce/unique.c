@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   unique.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/05 01:50:07 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 00:30:55 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "../array.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+void	unique(t_arr *arr)
+{
+	size_t	i;
 
-#endif
+	i = -1;
+	while (++i < arr->size - 1)
+	{
+		if (containsvfrom(arr, i + 1, get(arr, i).voidp, 1))
+			remove_at(arr, i--);
+	}
+}
+
+void	uniquen(t_arr *arr, size_t n)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < arr->size - 1)
+	{
+		if (countvfrom(arr, i + 1, get(arr, i).voidp, 1) >= n)
+			remove_at(arr, i--);
+	}
+}

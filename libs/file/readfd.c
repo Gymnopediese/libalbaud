@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   readfd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/17 20:21:51 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 20:31:36 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "file.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+t_str	readfd(int fd)
+{
+	ssize_t	temp;
+	t_str	res;
+	char	v[1000001];
 
-#endif
+	res = str("");
+	temp = 1;
+	while (temp)
+	{
+		temp = read(fd, v, 1000000);
+		if (temp == -1)
+			error("cannot read fd");
+		v[temp] = 0;
+		extends(&res, v);
+	}
+	return (res);
+}

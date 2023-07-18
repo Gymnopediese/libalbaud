@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   randomarr.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2022/07/21 15:30:19 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 00:19:44 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#ifndef RANDOMARR_H
+# define RANDOMARR_H
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+# include "../array.h"
+
+void		shuffle(t_arr *arr);
+t_pointer	pickrandom(t_arr *arr);
+
+
+t_arr		rrangei(int a, int b);
+t_arr		rrangeli(long int a, long int b);
+t_arr		rrangelli(long long a, long long b);
+t_arr		rranged(long a, long b);
+t_arr		rrangef(long a, long b);
 
 #endif

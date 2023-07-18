@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/06/30 00:14:24 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 00:33:30 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "../array.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+void	sort(t_arr *arr, int (*cmp)(void *, void *))
+{
+	size_t	i;
+	size_t	j;
+	size_t	f;
 
-#endif
+	f = 1;
+	while (f)
+	{
+		f = 0;
+		i = -1;
+		while (++i < arr->size - 1)
+		{
+			j = i;
+			while (++j < arr->size)
+				if (cmp(get(arr, i).voidp, get(arr, j).voidp) != 0)
+					swap(arr, i, j);
+		}
+	}
+}

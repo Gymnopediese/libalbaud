@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   infos.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/05 13:35:27 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/05 13:42:59 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "error.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
-
-#endif
+void	infos(t_arr *arr)
+{
+	printf("printing array infos\n");
+	printf("elem_size:\t%zu\n", arr->s_arr);
+	printf("size:\t\t%zu\n", arr->size);
+	printf("raw_size:\t%zu\n", arr->size * arr->s_arr);
+	printf("capacity:\t%zu\n", arr->capacity);
+	printf("raw_capacity:\t%zu\n", arr->capacity * arr->s_arr);
+}

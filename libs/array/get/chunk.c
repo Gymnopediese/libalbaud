@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   chunk.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/05 20:36:57 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/17 15:34:30 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "../array.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+t_arr	chunk(t_arr *arr, size_t size)
+{
+	t_arr	res;
+	size_t	i;
+	size_t	end;
 
-#endif
+	res = array(arr->size / size, sizeof(t_arr));
+	i = -1;
+	while (++i < res.capacity)
+	{
+		if (i * size + size > arr->size)
+			end = arr->size;
+		else
+			end = i * size + size;
+		res.arrays[i] = subarr(arr, i * size, end - 1);
+	}
+	res.size = res.capacity;
+	return (res);
+}
