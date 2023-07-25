@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 00:08:39 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 12:54:27 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/25 13:46:28 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libalbaud.h"
+#ifndef LIBS_H
+# define LIBS_H
 
-int	main(void)
-{
-	t_str	str;
+# include "libs/libalbaud.h"
 
-	str = readlines("Makefile");
-	print("{a(c):s}", &str);
-}
+#endif
