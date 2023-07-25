@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 13:23:43 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/10 15:54:03 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 16:48:11 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 t_str	str(char *c_str)
 {
-	t_str	res;
-
-	res = arrayv(strlen(c_str), 1, c_str);
-	return (res);
+	return (s_array(c_str));
 }
 
 t_str	strf(char *c_str)

@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 22:46:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/11 15:13:59 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/25 12:27:36 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ int	cisupper(char *a)
 int	cislower(char *a)
 {
 	return (*a >= 'a' && *a <= 'z');
-}
-
-int	cisnumeric(char *a)
-{
-	return (*a >= '0' && *a <= '9');
 }
 
 int	ctoupper(char a)

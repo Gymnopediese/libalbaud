@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:41:13 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/07 21:48:13 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 11:23:56 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ t_str	itod(double nb, size_t p)
 		return (res);
 	if (nb == 0)
 	{
-		push(&res, '.');
-		fill_back(&res, p, '0');
+		append(&res, v(":"));
+		fillback(&res, p, v("0"));
 		return (res);
 	}
-	insert(&res, -p, '.');
+	insert(&res, -p, v("."));
 	return (res);
 }
 

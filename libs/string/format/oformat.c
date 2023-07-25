@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 20:09:09 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/16 14:45:58 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 11:15:02 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,22 @@
 t_str	oformat(char *to_format, ...)
 {
 	va_list	l;
-	size_t	s;
+	size_t	ss;
 	t_str	res;
 	t_str	temp;
 
 	new_scope();
 	va_start(l, to_format);
 	res = str(to_format);
-	s = indexof(&res, '%');
-	while (s < (size_t)-1)
+	ss = indexof(&res, s("%"));
+	while (ss < (size_t)-1)
 	{
-		if (s == res.size)
+		if (ss == res.size)
 			error("invalid formatage string");
-		temp = va_str(res.arr + s + 1, &l);
-		insert_on_at(&res, s, 2, &temp);
+		temp = va_str(res.arr + ss + 1, &l);
+		insert(&res, ss, a(&temp));
 		delete(temp.arr);
-		s = indexoffrom(&res, s, '%');
+		ss = indexfrom(&res, ss, s("%"));
 	}
 	delete_scope(res.voidp);
 	return (res);

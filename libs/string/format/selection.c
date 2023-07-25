@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:49:24 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 00:39:11 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 11:21:20 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_str	pointerstr(void *p)
 	t_str	res;
 
 	res = itob((unsigned long long) p, HEXADECIMAL_LOWER);
-	extend_fronts(&res, "0x");
+	prepend(&res, s("0x"));
 	return (res);
 }
 
@@ -39,7 +39,7 @@ t_str	va_strf(char *type, va_list *l, t_format *format)
 	else if (splitcontains("d:f:double:float", type, ":"))
 		return (itod(va_arg(*l, double), format->precision));
 	else if (splitcontains("c:char", type, ":"))
-		return (arrayn(1, 1, va_arg(*l, int)));
+		return (e_array(1, va_arg(*l, int)));
 	else if (splitcontains("x:hex:hexadecimal", type, ":"))
 		return (itob(va_arg(*l, long), HEXADECIMAL_UPPER));
 	else if (splitcontains("o:oct:octal", type, ":"))
@@ -63,7 +63,7 @@ t_str	va_str(char *type, va_list *l)
 	else if (splitcontains("d:f:double:float", type, ":"))
 		return (itod6(va_arg(*l, double)));
 	else if (splitcontains("c:char", type, ":"))
-		return (arrayn(1, 1, va_arg(*l, int)));
+		return (e_array(1, va_arg(*l, int)));
 	else if (splitcontains("x:hex:hexadecimal", type, ":"))
 		return (itob(va_arg(*l, long), HEXADECIMAL_UPPER));
 	else if (splitcontains("o:oct:octal", type, ":"))

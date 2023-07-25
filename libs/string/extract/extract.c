@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:07:39 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/08 13:46:13 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 03:34:33 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	extract_str(t_str *res, t_str *to_extract, char *pattern, size_t j)
 	if (pattern[1] == 0)
 		index = to_extract->size;
 	else
-		index = indexoffrom(to_extract, j, pattern[1]);
+		index = indexfrom(to_extract, j, v(&pattern[1]));
 	if (index == (size_t)-1)
 		error("extract: non matching pattern");
 	sub = subarr(to_extract, j, index - 1);

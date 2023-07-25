@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:37:09 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/12 12:36:12 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/19 15:50:13 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,6 @@ void	ft_putstr_fd(char const *s, int fd)
 	i = 0;
 	while (s[i])
 		write(fd, &s[i++], 1);
-}
-
-void	error(char *text)
-{
-	t_nn	*node;
-	t_nn	*next;
-
-	node = trashcan()->head;
-	while (node)
-	{
-		next = node->next;
-		delete_node(node);
-		node = next;
-	}
-	if (text)
-	{
-		printf("%sERROR:%s %s\nin %s%s:%i%s\n", RED, RESET, text, BLUE, "hoho", 21, RESET);
-	}
-	exit(1);
 }
 
 void	quit(void)

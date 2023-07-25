@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:36:32 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 16:51:20 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 03:35:50 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ t_str	multidimention(char *type, void **data, t_format *form, int dimention)
 		{
 			temp = typetostr(type, (t_pointer)data, i, form);
 			if (i < len - 1)
-				extends(&temp, form->separator);
+				append(&temp, s(form->separator));
 		}
 		else
 			temp = multidimention(type, (void **)data[i], form, dimention - 1);
-		extend(&res, &temp);
+		append(&res, a(&temp));
 	}
 	if (form->log)
 		table(&res, form, dimention);
 	if (form->dimension > 1)
-		push(&res, '\n');
+		append(&res, s("\n"));
 	return (res);
 }

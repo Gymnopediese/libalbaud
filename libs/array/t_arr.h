@@ -6,16 +6,20 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 04:50:45 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 20:18:38 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/25 12:14:05 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef T_ARR_H
 # define T_ARR_H
 
+struct	s_pair;
+
 typedef union u_pointer
 {
+	union u_pointer		*me;
 	char				*arr;
+	struct s_pair		*pairs;
 	struct s_arr		*arrays;
 	struct s_arr		*strings;
 	struct s_arr		*maps;
@@ -64,6 +68,7 @@ typedef struct s_arr
 {
 	union
 	{
+		t_pointer			me;
 		char				*arr;
 		struct s_arr		*arrays;
 		struct s_arr		*strings;
@@ -102,5 +107,44 @@ typedef struct s_arr
 		unsigned long	allocated_space;
 	};
 }	t_arr;
+
+typedef t_arr	t_str;
+
+typedef struct s_elem
+{
+	union
+	{
+		char				*arr;
+		struct s_arr		*arrays;
+		struct s_arr		*strings;
+		struct s_arr		*maps;
+		void				**voids;
+		void				*voidp;
+		double				*doubles;
+		char				**strings_char;
+		char				*c_str;
+		int					*ints;
+		long				*longs;
+		long long			*long_longs;
+		float				*floats;
+		short				*shorts;
+		unsigned int		*uints;
+		unsigned long		*ulongs;
+		unsigned long long	*ulong_longs;
+		unsigned short		*ushorts;
+		unsigned char		*uchars;
+		char				*chars;
+		void				*p;
+		t_pointer			me;
+	};
+	size_t	len;
+}	t_elem;
+
+typedef struct s_pair
+{
+	char		hash[16];
+	t_elem		key;
+	t_elem		value;
+}	t_pair;
 
 #endif

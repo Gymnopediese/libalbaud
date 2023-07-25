@@ -6,25 +6,25 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 20:56:17 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 15:48:27 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 03:28:17 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "string.h"
 
-int	condition(char *sep, t_str *s)
+int	condition(t_str *s, va_list l)
 {
-	return (nocasefcmp(sep, s->arr) == 0);
+	return (nocasefcmp(va_arg(l, char *), s->arr) == 0);
 }
 
 int	splitcontains(char *string, char *target, char *sep)
 {
 	t_arr		sp;
-	int			res;
-	t_str		s;
+	int			res = 0;
+	t_str		st;
 
-	s = str(string);
-	sp = split(&s, sep, strlen(sep));
-	res = indexofff(&sp, target, condition);
+	st = str(string);
+	sp = split(&st, s(sep));
+	res = findexof(&sp, condition, target);
 	return (res != -1);
 }

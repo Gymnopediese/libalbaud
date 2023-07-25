@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 15:57:29 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 16:01:58 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 03:35:18 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ t_str	multidimarrr(char *type, t_arr *arr, t_format *form, int dimention)
 		{
 			temp = typetostr(type, (t_pointer)arr->voidp, i, form);
 			if (i < arr->len - 1)
-				extends(&temp, form->separator);
+				append(&temp, s(form->separator));
 		}
 		else
 			temp = multidimarrr(type, &arr->arrays[i], form, dimention - 1);
-		extend(&res, &temp);
+		append(&res, a(&temp));
 	}
 	if (form->log)
 		table(&res, form, dimention);
 	if (form->dimension > 1)
-		push(&res, '\n');
+		append(&res, v("\n"));
 	return (res);
 }

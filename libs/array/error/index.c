@@ -6,16 +6,15 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 03:45:29 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/09 17:52:22 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/22 16:47:58 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../array.h"
+#include "error.h"
 
 void	inrange(t_arr *arr, size_t *index)
 {
-	if ((ssize_t)(*index) < 0)
-		*index = arr->size + *index;
+	*index = arr->size * ((ssize_t)(*index) < 0) + *index;
 	if ((ssize_t)(*index) < 0)
 		error("index out of range: too low");
 	if (*index >= arr->size)
@@ -24,8 +23,7 @@ void	inrange(t_arr *arr, size_t *index)
 
 void	inrangelen(t_arr *arr, size_t *index)
 {
-	if ((ssize_t)(*index) < 0)
-		*index = arr->size + *index;
+	*index = arr->size * ((ssize_t)(*index) < 0) + *index;
 	if ((ssize_t)(*index) < 0)
 		error("index out of range: too low");
 	if (*index > arr->size)
@@ -34,8 +32,7 @@ void	inrangelen(t_arr *arr, size_t *index)
 
 void	incapacity(t_arr *arr, size_t *index)
 {
-	if ((ssize_t)(*index) < 0)
-		*index = arr->capacity + *index;
+	*index = arr->capacity * ((ssize_t)(*index) < 0) + *index;
 	if ((ssize_t)(*index) < 0)
 		error("index out of capacity: too low");
 	if (*index >= arr->capacity)

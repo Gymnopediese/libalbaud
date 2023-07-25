@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:43:41 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/16 21:45:24 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/24 11:23:19 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ t_str	typetostr(char *type, t_pointer pointer, size_t i, t_format *format)
 	else if (splitcontains("d:f:double:float", type, ":"))
 		return (itod(pointer.doubles[i], format->precision));
 	else if (splitcontains("c:char", type, ":"))
-		return (arrayn(1, 1, pointer.chars[i]));
+		return (e_array(1, pointer.chars[i]));
 	else if (splitcontains("p:pointer", type, ":"))
 		temp = itob(pointer.long_longs[i], HEXADECIMAL_LOWER);
 	else
 		error("invalid formatage type");
-	extend_fronts(&temp, "0x");
+	prepend(&temp, s("0x"));
 	return (temp);
 }

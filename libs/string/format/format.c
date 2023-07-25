@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 19:39:32 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/17 16:02:09 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/25 13:06:45 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	arguments(t_arr *content, va_list *l, t_str *res)
 	t_str		temp;
 
 	bzero(&format, sizeof(t_format));
-	spl = split(content, ":", 1);
+	spl = split(content, s(":"));
 	i = 0;
 	format.separator = " | ";
 	format.precision = 6;
+	format.pading.cote = 10;
 	format.base = 10;
 	while (++i < spl.size)
 		format_arg(&format, spl.strings[i].chars);
@@ -48,7 +49,8 @@ void	arguments(t_arr *content, va_list *l, t_str *res)
 		temp = multidimention(spl.strings[0].chars, va_arg(*l, void **),
 				&format, format.dimension);
 	apply(&temp, &format);
-	replace_contents(res, temp.arr, "{", "}");
+
+	replace_content(res, a(&temp), v("{"), v("}"));
 }
 
 // {type:lnum:up:low:s' alut ':m(c,py)}
@@ -62,7 +64,7 @@ t_str	formatage(char *to_format, va_list *l)
 
 	new_scope();
 	res = str(to_format);
-	content = subcontents(&res, "{", "}");
+	content = subcontent(&res, v("{"), v("}"));
 	i = -1;
 	while (++i < content.size)
 		arguments(&content.strings[i], l, &res);

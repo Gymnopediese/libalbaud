@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:00:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/16 16:53:40 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/23 02:09:49 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-#define LOG 0
+# define LOG 0
 
-#define RESET       "\033[0m"
+# define RESET       "\033[0m"
+
+# define SEGFAULT_ERROR 1
 
 // Text color
 #define BLACK       "\033[0;30m"
@@ -81,6 +83,7 @@ void	quit(void);
 void	*new(int count, int size);
 t_gb	*trashcan(void);
 void	add_pointer(void *p, size_t ammount, size_t size);
+void	assert(int condition, char *text);
 
 size_t	alloc_count(void *p);
 size_t	alloc_length(void *p);
