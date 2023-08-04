@@ -20,5 +20,6 @@ t_arr	rangeli(long int a, long int b);
 t_arr	rangelli(long long a, long long b);
 t_arr	ranged(long a, long b);
 t_arr	rangef(long a, long b);
+t_arr	primerange(int len);
 
 #endif

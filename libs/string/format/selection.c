@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:49:24 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/24 11:21:20 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/26 01:24:59 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,35 @@ t_str	pointerstr(void *p)
 
 t_str	va_strf(char *type, va_list *l, t_format *format)
 {
-	if (splitcontains("s:str:string:char*", type, ":"))
+	if (strcmp("s", type) == 0)
 		return (str(va_arg(*l, char *)));
-	else if (splitcontains("i:int:integer", type, ":"))
+	else if (strcmp("i", type) == 0)
+		return (itobn(va_arg(*l, int), BASEN, format->base));
+	else if (strcmp("li", type) == 0)
+		return (itobn(va_arg(*l, long), BASEN, format->base));
+	else if (strcmp("lli", type) == 0)
 		return (itobn(va_arg(*l, long long), BASEN, format->base));
-	else if (splitcontains("d:f:double:float", type, ":"))
+	else if (strcmp("zi", type) == 0)
+		return (itobn(va_arg(*l, ssize_t), BASEN, format->base));
+	else if (strcmp("u", type) == 0)
+		return (utobn(va_arg(*l, unsigned int), BASEN, format->base));
+	else if (strcmp("lu", type) == 0)
+		return (utobn(va_arg(*l, unsigned long), BASEN, format->base));
+	else if (strcmp("llu", type) == 0)
+		return (utobn(va_arg(*l, unsigned long long), BASEN, format->base));
+	else if (strcmp("zu", type) == 0)
+		return (utobn(va_arg(*l, size_t), BASEN, format->base));
+	else if (strcmp("d", type) == 0)
 		return (itod(va_arg(*l, double), format->precision));
-	else if (splitcontains("c:char", type, ":"))
+	else if (strcmp("c", type) == 0)
 		return (e_array(1, va_arg(*l, int)));
-	else if (splitcontains("x:hex:hexadecimal", type, ":"))
+	else if (strcmp("x", type) == 0)
 		return (itob(va_arg(*l, long), HEXADECIMAL_UPPER));
-	else if (splitcontains("o:oct:octal", type, ":"))
+	else if (strcmp("o", type) == 0)
 		return (itob(va_arg(*l, long), OCTAL));
-	else if (splitcontains("p:pointer", type, ":"))
+	else if (strcmp("p", type) == 0)
 		return (pointerstr(va_arg(*l, void *)));
-	else if (splitcontains("X:HEX:HEXADECIMAL", type, ":"))
+	else if (strcmp("X", type) == 0)
 		return (itob(va_arg(*l, long), HEXADECIMAL_LOWER));
 	else
 		error("invalid formatage typeo");

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min.c                                              :+:      :+:    :+:   */
+/*   mincmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 15:41:43 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/24 15:56:45 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/27 15:17:54 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minmax.h"
 
-t_pointer	fminfound(t_arr *arr, int (*cmp)(), ...)
+t_pointer	fmincmpfound(t_arr *arr, int (*cmp)(), ...)
 {
 	va_list		l;
 	size_t		i;
@@ -27,7 +27,7 @@ t_pointer	fminfound(t_arr *arr, int (*cmp)(), ...)
 	return (p);
 }
 
-t_pointer	minfound(t_arr *arr)
+t_pointer	mincmpfound(t_arr *arr)
 {
 	size_t		i;
 	t_pointer	p;
@@ -40,7 +40,7 @@ t_pointer	minfound(t_arr *arr)
 	return (p);
 }
 
-size_t	fminindex(t_arr *arr, int (*cmp)(), ...)
+size_t	fmincmpindex(t_arr *arr, int (*cmp)(), ...)
 {
 	va_list		l;
 	size_t		i;
@@ -62,7 +62,7 @@ size_t	fminindex(t_arr *arr, int (*cmp)(), ...)
 	return (ind);
 }
 
-size_t	minindex(t_arr *arr, int (*cmp)(), ...)
+size_t	mincmpindex(t_arr *arr, int (*cmp)(), ...)
 {
 	va_list		l;
 	size_t		i;

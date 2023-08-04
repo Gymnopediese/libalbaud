@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libalbaud.h                                        :+:      :+:    :+:   */
+/*   primerange.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/18 13:00:54 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/29 22:59:44 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/30 20:19:06 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBALBAUD_H
-# define LIBALBAUD_H
+#include "range.h"
 
-# include "libs/array/array.h"
-# include "libs/string/string.h"
-# include "libs/map/map.h"
-# include "libs/string/string.h"
-# include "libs/file/file.h"
+int	isprime(int i)
+{
+	int	j;
 
-#endif
+	j = 1;
+	while (++j <= i * i)
+		if (i % j == 0)
+			return (0);
+	return (1);
+}
+
+t_arr	primerange(int len)
+{
+	t_arr	arr;
+	int		i;
+
+	arr = array(len, sizeof(int));
+	i = 1;
+	while (++i < len)
+	{
+		if (isprime(i))
+			append(&arr, v(&i));
+	}
+	return (arr);
+}

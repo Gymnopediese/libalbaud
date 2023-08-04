@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itob.c                                             :+:      :+:    :+:   */
+/*   utob.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 03:26:21 by tate              #+#    #+#             */
-/*   Updated: 2023/07/26 02:14:22 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/26 02:14:24 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../string.h"
 
-int	ft_nlen(long nb, int n)
+t_str	utobn(unsigned long long nb, char *base, size_t len)
 {
-	int		len;
-
-	len = 0;
-	if (nb < 0)
-	{
-		nb = nb * -1;
-		len++;
-	}
-	while (nb > 0)
-	{
-		nb = nb / n;
-		len++;
-	}
-	if (len == 0)
-		len = 1;
-	return (len);
-}
-
-t_str	itobn(long long nb, char *base, size_t len)
-{
-	char		*res;
-	long long	n;
-	long long	i;
+	char				*res;
+	unsigned long long	n;
+	unsigned long long	i;
 
 	n = nb;
 	i = ft_nlen(nb, len);
@@ -60,7 +40,7 @@ t_str	itobn(long long nb, char *base, size_t len)
 	return (strf(res));
 }
 
-t_str	itob(long long nb, char *base)
+t_str	utob(long long nb, char *base)
 {
 	return (itobn(nb, base, strlen(base)));
 }
