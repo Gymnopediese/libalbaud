@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 22:38:20 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 12:38:05 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/04 18:03:03 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ int	or_opp(int a, int b)
 int	xor_opp(int a, int b)
 {
 	return (!(a && b) && (a || b));
+}
+
+int	not_opp(int a)
+{
+	return (!a);
 }

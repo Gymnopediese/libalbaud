@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 12:35:35 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 13:22:18 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/04 13:47:38 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	move_right(t_arr *arr, size_t move, size_t start, size_t end)
 
 void	move_left(t_arr *arr, size_t move, size_t start, size_t end)
 {
-	arrealloc(arr, 1);
 	mymemcpy(get(arr, start).arr,
 		get(arr, start + move).arr, arr->elem_size * (end - start - move));
 	bzero(&arr->arr[(end - move)

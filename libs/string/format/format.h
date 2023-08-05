@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 04:50:45 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/23 14:50:55 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/04 13:18:43 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_str	va_strf(char *type, va_list *l, t_format *format);
 t_str	va_str(char *type, va_list *l);
 t_str	typetostr(char *type, t_pointer pointer, size_t i, t_format *format);
 void	format_arg(t_format *format, char *arg);
-int	dimensions(t_arr *arr);
+int		dimensions(t_arr *arr);
+void	errorf(char *to_format, ...);
 t_str	multidimarr(char *type, t_arr *arr, t_format *form);
 t_str	multidimarrr(char *type, t_arr *arr, t_format *form, int dimention);
 

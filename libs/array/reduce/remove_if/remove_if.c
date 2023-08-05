@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 02:06:16 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/24 12:47:46 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/04 13:08:28 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,13 @@ int	remove_if(t_arr *arr, int (*condition)(), ...)
 void	nremove_if(t_arr *arr, size_t n, int (*condition)(), ...)
 {
 	size_t	i;
-	size_t	end;
 	va_list	l;
 
 	va_start(l, condition);
-	i = 0;
-	end = arr->size;
-	while (i < end && n)
+	i = -1;
+	while (++i < arr->size && n--)
 	{
-		i--;
-		end = arr->size;
-		while (++i < end)
-			end *= (condition(get(arr, i), l, i, arr) == 0);
-		(t_void []){if_not, remove_at}
-			[condition(get(arr, i), l, i, arr) == 0](arr, i);
-		n--;
+		if ((condition(get(arr, i).arr, l, i, arr) == 0) == 0)
+			remove_at(arr, i--);
 	}
 }

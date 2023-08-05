@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 04:50:45 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 12:14:05 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/04 17:05:04 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ typedef struct s_arr
 }	t_arr;
 
 typedef t_arr	t_str;
+typedef t_arr	t_stack;
+typedef t_arr	t_queu;
 
 typedef struct s_elem
 {
