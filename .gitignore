@@ -1,1 +1,6 @@
-.o
+objs
+test
+libalbaud.a
+dead
+TODO
+test*
