@@ -15,12 +15,14 @@
 
 # include "../string.h"
 
-int	len(long long nb);
+int		len(long long nb);
 t_str	itoa(long long int nb);
-int	ft_nlen(long nb, int n);
+int		ft_nlen(long nb, int n);
 t_str	itobn(long long nb, char *base, size_t len);
 t_str	itob(long long nb, char *base);
 t_str	itod(double nb, size_t p);
 t_str	itod6(double nb);
+t_str	utobn(unsigned long long nb, char *base, size_t len);
+t_str	utob(long long nb, char *base);
 
 #endif

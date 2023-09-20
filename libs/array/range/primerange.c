@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.h                                           :+:      :+:    :+:   */
+/*   primerange.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 04:50:45 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/23 14:50:55 by albaud           ###   ########.fr       */
+/*   Created: 2023/07/29 22:59:44 by albaud            #+#    #+#             */
+/*   Updated: 2023/07/30 20:19:06 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_H
-# define ARRAY_H
+#include "range.h"
 
-# include "../libalbaud.h"
-# include "expend/expend.h"
-# include "init/init.h"
-# include "elem/elem.h"
-# include "intersect/intersect.h"
-# include "reduce/reduce.h"
-# include "randomarr/randomarr.h"
-# include "modify/modify.h"
-# include "get/get.h"
-# include "search/search.h"
-# include "range/range.h"
-# include "dimention/dimention.h"
-# include "error/error.h"
+int	isprime(int i)
+{
+	int	j;
 
-#endif
+	j = 1;
+	while (++j <= i * i)
+		if (i % j == 0)
+			return (0);
+	return (1);
+}
+
+t_arr	primerange(int len)
+{
+	t_arr	arr;
+	int		i;
+
+	arr = array(len, sizeof(int));
+	i = 1;
+	while (++i < len)
+	{
+		if (isprime(i))
+			append(&arr, v(&i));
+	}
+	return (arr);
+}

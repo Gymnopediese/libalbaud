@@ -6,19 +6,20 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 02:08:40 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/27 14:57:45 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBALBAUD_H
 # define LIBALBAUD_H
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <strings.h>
-# include <stdarg.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <math.h>
 
 # include "trashcan/trashcan.h"
 # include "va_args/va_args.h"

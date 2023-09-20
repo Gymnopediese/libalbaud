@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 15:22:42 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/16 21:42:48 by albaud           ###   ########.fr       */
+/*   Updated: 2023/08/05 11:02:59 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	init(void)
 		innit = 0;
 		srand((unsigned) time(&t));
 	}
+}
+
+void	set_seed(unsigned seed)
+{
+	srand((unsigned) seed);
 }
 
 long long	randint(long long min, long long max)

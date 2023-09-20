@@ -15,9 +15,7 @@
 
 # include "../string.h"
 
-size_t	extract_str(t_str *res, t_str *to_extract, char *pattern, size_t j);
-size_t	extract_int(t_str *res, t_str *to_extract, size_t j);
-size_t	extract_double(t_str *res, t_str *to_extract, size_t j);
 void	*extract(char *to_extract, char *pattern, size_t len);
+int		follow(char *to_extract, char *pattern, size_t len);
 
 #endif

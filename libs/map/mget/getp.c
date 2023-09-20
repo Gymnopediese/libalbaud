@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 12:20:43 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 02:41:17 by albaud           ###   ########.fr       */
+/*   Updated: 2023/07/25 22:28:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_pair	*getpair(t_map *map, t_elem key)
 
 	hash(key.arr, key.len, h);
 	index = findexof(map, has_hash, h);
-	printf("index: %zu\n", index);
 	if (index == (size_t)-1)
 		return (0);
 	return (getr(map, index).pairs);
