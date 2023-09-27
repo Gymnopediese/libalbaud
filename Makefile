@@ -6,7 +6,7 @@
 #    By: albaud <albaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 13:07:44 by albaud            #+#    #+#              #
-#    Updated: 2023/09/27 15:48:10 by albaud           ###   ########.fr        #
+#    Updated: 2023/09/27 21:40:23 by albaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,3 +43,19 @@ test	: $(OBJS)
 
 src:
 	echo $(SRCS)
+
+
+
+
+
+libia	: vlib mlib p
+		git clone https://github.com/Gymnopediese/libia.git libs/libia
+
+p		:
+		git clone https://github.com/Gymnopediese/p.git libs/p
+
+mlib	: vlib
+		git clone https://github.com/Gymnopediese/mlib.git libs/mlib
+
+vlib	:
+		git clone https://github.com/Gymnopediese/vlib.git libs/vlib
