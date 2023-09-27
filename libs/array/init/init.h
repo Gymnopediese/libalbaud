@@ -16,19 +16,19 @@
 # include "../array.h"
 
 t_arr	array(size_t len, size_t elem_size);
-t_arr	l_array(size_t elme_size, void *e, size_t len);
-t_arr	n_array(size_t elme_size, size_t len, ...);
+t_arr	l_array(size_t elem_size, void *e, size_t len);
+t_arr	n_array(size_t elem_size, size_t len, ...);
 t_arr	e_array(size_t elem_size, ...);
 t_arr	s_array(char *str);
 t_arr	v_array(size_t elem_size, void *elem);
 t_arr	a_array(t_arr *cpy);
 t_arr	copy(t_arr	*cpy);
-t_arr	*tarray(size_t elme_size, t_elem e);
+t_arr	*tarray(size_t elem_size, t_elem e);
 t_arr	*tarrays(char *str);
-t_arr	*torray(size_t elme_size, t_elem e);
+t_arr	*torray(size_t elem_size, t_elem e);
 t_arr	*torrays(char *str);
 void	arrealloc(t_arr	*res, ssize_t size);
-t_arr	l_orray(size_t elme_size, void *e, size_t len);
+t_arr	l_orray(size_t elem_size, void *e, size_t len);
 t_arr	s_orray(char *str);
 
 #endif

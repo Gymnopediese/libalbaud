@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/27 14:57:45 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/27 16:02:28 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,23 @@
 # include "map/map.h"
 # include "random/random.h"
 # include "file/file.h"
+# if __has_include("p/p.h") && __has_include(<stdint.h>)
+#  include "p/p.h"
+# endif
+# if __has_include("vlib/vlib.h") && __has_include(<stdint.h>)
+#  include "vlib/vlib.h"
+# endif
+# if __has_include("mlib/mlib.h") && __has_include(<stdint.h>)
+#  include "mlib/mlib.h"
+# endif
+# if __has_include("mlx/minilibx.h") && __has_include(<stdint.h>)
+#  include "mlx/minilibx.h"
+# endif
+# if __has_include("libia/libia.h") && __has_include(<stdint.h>)
+#  include "libia/libia.h"
+# endif
+
+
 
 #endif
+

@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:37:09 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/19 15:50:13 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/27 16:06:09 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # define PROGRAM_NAME "libc"
 #endif
 
-t_gb	*trashcan(void)
+t_gbc	*trashcan(void)
 {
-	static t_gb	gb[1];
+	static t_gbc	gb[1];
 	static int	init = 0;
 
 	if (init == 0 && ++init)
-		*gb = (t_gb){0, 0, 0, 0};
+		*gb = (t_gbc){0, 0, 0, 0};
 	return (gb);
 }
 
@@ -37,8 +37,8 @@ void	ft_putstr_fd(char const *s, int fd)
 
 void	quit(void)
 {
-	t_nn	*node;
-	t_nn	*next;
+	t_gcn	*node;
+	t_gcn	*next;
 	size_t	total_size;
 	size_t	element;
 	size_t	s;
@@ -55,18 +55,18 @@ void	quit(void)
 		delete_node(node);
 		node = next;
 	}
-	printf("%squiting the program by freing %zu pointers containing %zu element for a total length of %zubytes%s\n", GREEN, s, element, total_size, RESET);
+	printf("%squiting the program by freing %zu pointers containing %zu element for a total length of %zubytes%s\n", TGREEN, s, element, total_size, RESET);
 	exit(0);
 }
 
 void	add_pointer(void *p, size_t amount, size_t size)
 {
-	t_gb	*gb;
-	t_nn	*node;
+	t_gbc	*gb;
+	t_gcn	*node;
 
 	if (p == 0)
 		error("null pointer returned by malloc");
-	node = malloc(sizeof(t_nn));
+	node = malloc(sizeof(t_gcn));
 	if (node == 0)
 		error("null pointer returned by malloc");
 	gb = trashcan();

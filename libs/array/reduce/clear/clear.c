@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 19:45:11 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/24 11:35:01 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/22 16:43:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	clear(t_arr *arr)
 {
 	arr->size = 0;
-	bzero(arr->arr, arr->size * arr->s_arr);
+	// bzero(arr->arr, arr->size * arr->s_arr);
 }
 
 void	clear_excess(t_arr *arr)

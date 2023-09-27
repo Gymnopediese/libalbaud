@@ -15,12 +15,12 @@
 
 # include "../array.h"
 
-void	shuffle(t_arr *arr);
-t_arr	rrangei(int a, int b);
-t_arr	rrangeli(long int a, long int b);
-t_arr	rrangelli(long long a, long long b);
-t_arr	rranged(long a, long b);
-t_arr	rrangef(long a, long b);
+void		shuffle(t_arr *arr);
+t_arr		rrangei(int a, int b);
+t_arr		rrangeli(long int a, long int b);
+t_arr		rrangelli(long long a, long long b);
+t_arr		rranged(long a, long b);
+t_arr		rrangef(long a, long b);
 t_pointer	pickrandom(t_arr *arr);
 
 #endif

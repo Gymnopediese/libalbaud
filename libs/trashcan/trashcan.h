@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:00:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/23 02:09:49 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/27 15:57:26 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@
 # define SEGFAULT_ERROR 1
 
 // Text color
-#define BLACK       "\033[0;30m"
-#define RED         "\033[0;31m"
-#define GREEN       "\033[0;32m"
-#define YELLOW      "\033[0;33m"
-#define BLUE        "\033[0;34m"
-#define MAGENTA     "\033[0;35m"
-#define CYAN        "\033[0;36m"
-#define WHITE       "\033[0;37m"
+#define TBLACK       "\033[0;30m"
+#define TRED         "\033[0;31m"
+#define TGREEN       "\033[0;32m"
+#define TYELLOW      "\033[0;33m"
+#define TBLUE        "\033[0;34m"
+#define TMAGENTA     "\033[0;35m"
+#define TCYAN        "\033[0;36m"
+#define TWHITE       "\033[0;37m"
 
 // Bold text color
 #define BOLD_BLACK       "\033[1;30m"
@@ -64,24 +64,29 @@ typedef struct s_n
 	size_t		count;
 	size_t		size;
 	struct s_n	*next;
-}	t_nn;
+}	t_gcn;
 
 typedef struct s_gb
 {
-	t_nn	*head;
-	t_nn	*tail;
-	t_nn	*scope;
+	t_gcn	*head;
+	t_gcn	*tail;
+	t_gcn	*scope;
 	int		size;
-}	t_gb;
+}	t_gbc;
 
+# ifndef PROGRAM_NAME
+#  define PROGRAM_NAME "libalbaud"
+# endif
 
-int		delete(void *to_deletek);
-int		delete0(void **to_deletek);
-int		deletep(void **to_deletek, size_t size);
+int		delete(void *to_delete);
+int		delete0(void **to_delete);
+int		deletepl(void **to_delete, size_t size);
+int		deletep(void **to_delete);
+
 void	error(char *text);
 void	quit(void);
 void	*new(int count, int size);
-t_gb	*trashcan(void);
+t_gbc	*trashcan(void);
 void	add_pointer(void *p, size_t ammount, size_t size);
 void	assert(int condition, char *text);
 
@@ -89,9 +94,7 @@ size_t	alloc_count(void *p);
 size_t	alloc_length(void *p);
 size_t	alloc_size(void *p);
 int		is_allocated(void *p);
-
-int		delete_node(t_nn *node);
-
+int		delete_node(t_gcn *node);
 void	new_scope(void);
 void	delete_scope(void *blacklist);
 #endif

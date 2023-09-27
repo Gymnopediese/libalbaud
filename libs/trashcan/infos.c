@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 02:39:06 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/12 12:28:38 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/20 17:06:43 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	alloc_count(void *p)
 {
-	t_nn	*node;
+	t_gcn	*node;
 
 	node = trashcan()->head;
 
@@ -29,7 +29,7 @@ size_t	alloc_count(void *p)
 
 size_t	alloc_length(void *p)
 {
-	t_nn	*node;
+	t_gcn	*node;
 
 	node = trashcan()->head;
 
@@ -44,7 +44,7 @@ size_t	alloc_length(void *p)
 
 size_t	alloc_size(void *p)
 {
-	t_nn	*node;
+	t_gcn	*node;
 
 	node = trashcan()->head;
 
@@ -59,7 +59,7 @@ size_t	alloc_size(void *p)
 
 int	is_allocated(void *p)
 {
-	t_nn	*node;
+	t_gcn	*node;
 
 	node = trashcan()->head;
 	while (node)

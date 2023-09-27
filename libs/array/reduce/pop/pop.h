@@ -15,12 +15,12 @@
 
 # include "../reduce.h"
 
-void	*memdup(void *src, size_t size);
-void	*pop(t_arr *arr, size_t ind);
-void	*popfront(t_arr *arr);
-void	*popback(t_arr *arr);
-void	*pople(t_arr *arr, size_t ind, size_t len);
-void	*poplefront(t_arr *arr, size_t len);
-void	*popleback(t_arr *arr, size_t len);
+void		*memdup(void *src, size_t size);
+t_pointer	pop(t_arr *arr, size_t ind);
+t_pointer	popfront(t_arr *arr);
+t_pointer	popback(t_arr *arr);
+t_pointer	pople(t_arr *arr, size_t ind, size_t len);
+t_pointer	poplefront(t_arr *arr, size_t len);
+t_pointer	popleback(t_arr *arr, size_t len);
 
 #endif

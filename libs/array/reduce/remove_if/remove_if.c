@@ -6,18 +6,13 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 02:06:16 by albaud            #+#    #+#             */
-/*   Updated: 2023/08/04 13:08:28 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/26 10:19:27 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "remove_if.h"
 
 typedef void	(*t_void)();
-
-void	if_not(void)
-{
-
-}
 
 int	remove_if(t_arr *arr, int (*condition)(), ...)
 {

@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 15:50:18 by albaud            #+#    #+#             */
-/*   Updated: 2023/08/05 00:42:45 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/27 16:05:59 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	assert(int condition, char *text)
 
 void	error(char *text)
 {
-	t_nn	*node;
-	t_nn	*next;
+	t_gcn	*node;
+	t_gcn	*next;
 
 	if (text)
-		printf("%sERROR:%s %s\nin %s%s:%i%s\n",
-			RED, RESET, text, BLUE, "hoho", 21, RESET);
+		printf("%s%s:%s %s%s%s\n",
+			TRED, PROGRAM_NAME, RESET, TBLUE, text, RESET);
 	node = trashcan()->head;
 	while (node)
 	{
