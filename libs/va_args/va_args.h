@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:21:46 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/22 13:03:11 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/18 08:37:07 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define VA_ARG_MAX_ELEM 5
 
 typedef void(*t_va_func)(va_list *);
-typedef void(*t_va_pfunc)();
+typedef void(*t_va_pfunc)(void *, va_list *);
 
 char	*va_arg_len(va_list *l, size_t len);
 void	va_repeat(size_t n, t_va_func f, ...);

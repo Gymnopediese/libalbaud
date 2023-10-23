@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:46:02 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/24 11:21:09 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/18 08:41:40 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_pad	getpadding(char *str, int n)
 {
 	t_arr	spl;
-	size_t	i;
+	// size_t	i;
 	t_str	_s;
 	t_pad	res;
 
-	i = -1;
+	// i = -1;
 	_s = strf(str);
 	spl = split(&_s, s(","));
 	if (spl.size != 3)

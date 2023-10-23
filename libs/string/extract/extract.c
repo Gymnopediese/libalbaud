@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:07:39 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 21:39:53 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/18 08:41:21 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void	extract_str(t_str *res, t_str *to_extract, char *pattern, size_t *j)
 void	extract_int(t_str *res, t_str *to_extract, size_t *j)
 {
 	int		sub;
-	size_t	index;
+	// size_t	index;
 
 	sub = atoi(&to_extract->arr[(*j)]);
-	index = 0;
+	// index = 0;
 	while (cisnumeric(&to_extract->arr[(*j)]) && (*j)++)
-		index++;
+		;// index += 1;
 	memcpy(&res->arr[res->size], &sub, 4);
 	res->size += 4;
 }

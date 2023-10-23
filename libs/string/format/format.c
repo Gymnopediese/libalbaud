@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 19:39:32 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/25 13:06:45 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:43:32 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,13 @@ void	arguments(t_arr *content, va_list *l, t_str *res)
 		temp = multidimention(spl.strings[0].chars, va_arg(*l, void **),
 				&format, format.dimension);
 	apply(&temp, &format);
-
 	replace_content(res, a(&temp), v("{"), v("}"));
 }
 
 // {type:lnum:up:low:s' alut ':m(c,py)}
 // types: s, i, d, c, p, x, X, o + red black green yellow blue magenta cyan
 // {s:l100:p  afdas  :}
-t_str	formatage(char *to_format, va_list *l)
+t_str	va_format(char *to_format, va_list *l)
 {
 	t_str	res;
 	t_arr	content;
@@ -77,5 +76,5 @@ t_str	format(char *to_format, ...)
 	va_list	l;
 
 	va_start(l, to_format);
-	return (formatage(to_format, &l));
+	return (va_format(to_format, &l));
 }

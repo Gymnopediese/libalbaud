@@ -18,6 +18,7 @@ void	insert(t_arr *arr, size_t index, t_elem elem)
 
 	assert(elem.chars == arr->arr, "cannot append array to itself");
 	arrealloc(arr, elem.len);
+	inrange(arr, &index);
 	move_right(arr, elem.len, index, arr->size);
 	i = -1;
 	while (++i < arr->elem_size * elem.len)

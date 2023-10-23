@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/09/27 16:02:28 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/04 13:08:28 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <math.h>
+
+
+# define DEBUG 1
 
 # include "trashcan/trashcan.h"
 # include "va_args/va_args.h"

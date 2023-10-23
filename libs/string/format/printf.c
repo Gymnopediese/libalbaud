@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:51:02 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/22 16:45:16 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/19 09:54:37 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	print(char *to_format, ...)
 	t_str	res;
 
 	va_start(l, to_format);
-	res = formatage(to_format, &l);
+	res = va_format(to_format, &l);
 	write(1, res.arr, res.size);
 	write(1, PRINTEND, 1);
 	delete(res.arr);
@@ -31,7 +31,7 @@ size_t	printfd(int fd, char *to_format, ...)
 	t_str	res;
 
 	va_start(l, to_format);
-	res = formatage(to_format, &l);
+	res = va_format(to_format, &l);
 	write(fd, res.arr, res.size);
 	delete(res.arr);
 	return (res.size);
@@ -44,7 +44,7 @@ size_t	printfile(char *file, char *to_format, ...)
 	int		fd;
 
 	va_start(l, to_format);
-	res = formatage(to_format, &l);
+	res = va_format(to_format, &l);
 	fd = open(file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (fd == -1)
 		error("printfile: invalid file");

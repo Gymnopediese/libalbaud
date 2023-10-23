@@ -6,13 +6,13 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:25:25 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/21 19:46:55 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/18 08:36:49 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "va_args.h"
 
-void	va_loop(size_t n, t_va_func f, ...)
+void	va_loop(size_t n, void (*f)(va_list *), ...)
 {
 	va_list	l;
 
@@ -21,7 +21,7 @@ void	va_loop(size_t n, t_va_func f, ...)
 		f(&l);
 }
 
-void	va_ploop(size_t n, t_va_pfunc f, void *p, ...)
+void	va_ploop(size_t n, void (*f)(void *, va_list *), void *p, ...)
 {
 	va_list	l;
 

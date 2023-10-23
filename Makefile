@@ -6,30 +6,30 @@
 #    By: albaud <albaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/18 13:07:44 by albaud            #+#    #+#              #
-#    Updated: 2023/09/27 21:40:23 by albaud           ###   ########.fr        #
+#    Updated: 2023/10/18 09:24:00 by albaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS 		= $(filter-out $(wildcard libs/_*/*.c libs/*/_*/*.c libs/*/*/_*/*.c), $(wildcard libs/*/*.c libs/*/*/*.c libs/*/*/*/*.c))
 OBJS		= $(patsubst libs/%.c, objs/%.o, $(SRCS))
 NAME 		= libalbaud.a
-CC			= gcc
-CFLAGS		=  -g3 -fsanitize=address -Wall -Wextra -Werror
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -Wno-deprecated-non-prototype
 OBJ_DIR		= objs
 SRC_DIR		= libs
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@
 
 .c.o 	:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o} 
 		
 all 	: $(NAME)
 
 
 $(NAME)	: ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+		ar rcs ${NAME} ${OBJS} 
 
 clean	:
 		rm -rf $(OBJ_DIR)
@@ -59,3 +59,6 @@ mlib	: vlib
 
 vlib	:
 		git clone https://github.com/Gymnopediese/vlib.git libs/vlib
+
+mlx		:
+		git clone https://github.com/Gymnopediese/mlx-.git libs/mlx

@@ -16,9 +16,11 @@ void	fill(t_arr *arr, size_t index, size_t fsize, t_elem elem)
 {
 	size_t	i;
 	size_t	j;
-
+	#if DEBUG == 1
 	if ((ssize_t)fsize <= (ssize_t)arr->size)
 		return ;
+	#endif
+
 	fsize -= arr->size;
 	assert(elem.chars == arr->arr, "cannot append array to itself");
 	arrealloc(arr, fsize);

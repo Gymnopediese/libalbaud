@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 13:16:43 by albaud            #+#    #+#             */
-/*   Updated: 2023/08/05 00:42:34 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:10:22 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	errorf(char *str, ...)
 	t_str	res;
 
 	va_start(l, str);
-	res = formatage(str, &l);
+	res = va_format(str, &l);
 	error(res.arr);
 }

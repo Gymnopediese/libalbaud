@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   center.c                                         :+:      :+:    :+:   */
+/*   csv.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/18 15:43:53 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/19 15:58:24 by albaud           ###   ########.fr       */
+/*   Created: 2023/10/04 10:45:02 by albaud            #+#    #+#             */
+/*   Updated: 2023/10/19 14:56:35 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "center.h"
+#include "file.h"
 
-void	center(t_arr *arr, size_t fsize, t_elem elem)
+void	atoia(double *res, char *str, char *split)
 {
-	#if DEBUG == 1
-	if (fsize <= arr->size)
-		return ;
-	#endif
-	fillback(arr, fsize - (fsize - arr->size) / 2, elem);
-	fillfront(arr, fsize, elem);
+	int		i;
+	int		k;
+	int		len;
+
+	len = strlen(split);
+	i = -1;
+	k = 0;
+	while (str[k])
+	{
+		res[++i] = atof(&str[k]);
+		while (str[k] && strncmp(&str[k], split, len))
+			k++;
+		k += !strncmp(&str[k], split, len) * len;
+	}
 }
