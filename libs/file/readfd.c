@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:21:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/07/30 21:16:32 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/24 02:14:21 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,32 @@ t_str	readfd(int fd)
 	return (res);
 }
 
+t_str	readlinefd(int fd)
+{
+	ssize_t	temp;
+	t_str	res;
+	char	buffer[1000001];
+
+	res = str("");
+	temp = 1;
+	while (temp)
+	{
+		temp = read(fd, buffer, 1000000);
+		if (temp == -1)
+			error("cannot read fd");
+		buffer[temp] = 0;
+		append(&res, s(buffer));
+		if (indexof(&res, v("\n")) != (size_t)-1)
+		{
+			res.chars[res.len - 1] = 0;
+			break ;
+		}
+	}
+	return (res);
+}
+
 t_str	input(char *prompt)
 {
-	print(prompt);
-	return (readfd(0));
+	printnoline(prompt);
+	return (readlinefd(0));
 }

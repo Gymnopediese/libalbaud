@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:51:02 by albaud            #+#    #+#             */
-/*   Updated: 2023/10/19 09:54:37 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/23 20:47:12 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@ size_t	print(char *to_format, ...)
 	res = va_format(to_format, &l);
 	write(1, res.arr, res.size);
 	write(1, PRINTEND, 1);
+	delete(res.arr);
+	return (res.size);
+}
+
+size_t	printnoline(char *to_format, ...)
+{
+	va_list	l;
+	t_str	res;
+
+	va_start(l, to_format);
+	res = va_format(to_format, &l);
+	write(1, res.arr, res.size);
 	delete(res.arr);
 	return (res.size);
 }

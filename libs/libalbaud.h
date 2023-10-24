@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 20:35:27 by albaud            #+#    #+#             */
-/*   Updated: 2023/10/04 13:08:28 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/23 20:58:10 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # include "map/map.h"
 # include "random/random.h"
 # include "file/file.h"
+# include "input/input.h"
 # if __has_include("p/p.h") && __has_include(<stdint.h>)
 #  include "p/p.h"
 # endif
@@ -50,7 +51,7 @@
 #  include "libia/libia.h"
 # endif
 
-
+void	input_box(void *arg, char *text, int options, char **lines, void (**f)());
 
 #endif
 

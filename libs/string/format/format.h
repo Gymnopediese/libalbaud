@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 04:50:45 by albaud            #+#    #+#             */
-/*   Updated: 2023/10/19 09:50:34 by albaud           ###   ########.fr       */
+/*   Updated: 2023/10/23 19:15:06 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_str	multidimention(char *type, void **data, t_format *form, int dimention);
 size_t	memlen(void **data);
 void	arguments(t_arr *content, va_list *l, t_str *res);
 t_str	va_format(char *to_format, va_list *l);
+size_t	printnoline(char *to_format, ...);
 t_str	format(char *to_format, ...);
 t_pad	getpadding(char *str, int n);
 void	apply(t_str *str, t_format *format);
